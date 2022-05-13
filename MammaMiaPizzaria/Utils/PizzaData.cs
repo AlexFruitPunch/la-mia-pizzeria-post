@@ -6,17 +6,22 @@ namespace MammaMiaPizzaria.Utils
     {
         private static List<Pizza> Pizze;
 
-        public static List<Pizza> GetPizzas()
+        public static List<Pizza> GetPizze()
         {
+            //controllo che la lista di pizze non sia vuota
             if (Pizze != null)
             {
                 return PizzaData.Pizze;
             }
 
+            //Creo una lista provvisoria
             List<Pizza> NuovePizze = new List<Pizza>();
 
+            //creo variabile contatore che mi farà da id
             int i = 0;
-            Pizza pizza = new Pizza(i, "margherita", "mozzarella, pomodoro, olio di oliva, basilico", "https://www.buttalapasta.it/wp-content/uploads/2017/11/pizza-margherita.jpg", 4);
+
+            //istanzio un oggetto per ogni elemento della lista e la salvo nella lista provvisoria
+            Pizza pizza = new Pizza(i, "margherita", "mozzarella, pomodoro, olio di oliva, basilico", "https://www.buttalapasta.it/wp-content/uploads/2017/11/pizza-margherita.jpg", Math.Round(4.00, 2));
             NuovePizze.Add(pizza);
             Pizza pizza2 = new Pizza(i++, "margherita", "mozzarella, pomodoro, olio di oliva, basilico", "https://primochef.it/wp-content/uploads/2018/05/SH_pizza_alla_marinara-1200x800.jpg", 4);
             NuovePizze.Add(pizza2);
@@ -37,6 +42,7 @@ namespace MammaMiaPizzaria.Utils
 
             PizzaData.Pizze = NuovePizze;
 
+            //ritorno la lista compilata
             return PizzaData.Pizze;
         }
     }

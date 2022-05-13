@@ -1,13 +1,16 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MammaMiaPizzaria.Models;
+using MammaMiaPizzaria.Utils;
+using Microsoft.AspNetCore.Mvc;
 
 namespace MammaMiaPizzaria.Controllers
 {
     public class PizzaController : Controller
     {
-        [HttpGet]                                                   //dichiariamo che questo metodo vuole fare una GET                                    //Dichiariamo qual'è il path da seguire per questo metodo
+        [HttpGet]                                                   //dichiariamo che questo metodo vuole fare una GET                                   
         public IActionResult ListinoPizze()
         {
-            return View("ListinoPizze");
+            List<Pizza> Pizze = PizzaData.GetPizze();
+            return View("ListinoPizze", Pizze);
         }
     }
 }

@@ -13,18 +13,28 @@
         }
         else
         {
+             int contatore = 0;
+            
             @foreach (Pizza pizzaDellaLista in Model)
             {
                 <div class="col">
                     <div class="card shadow bg-body img-fluid h-100">
-                        <img src="@pizzaDellaLista.immagine"" class="card-img-top" alt="@pizzaDellaLista.Nome">
+                        <img src="@pizzaDellaLista.immagine" class="card-img-top" alt="@pizzaDellaLista.Nome">
                         <div class="card-body fs-6 p-0">
-                            <h4 class="text-center my-3">id:@pizzaDellaLista.id - @pizzaDellaLista.Nome</h4>
-                            <p>@pizzaDellaLista.Ingredienti</p>
+                            <h4 class="text-center my-3">@(pizzaDellaLista.id + 1) - @pizzaDellaLista.Nome</h4>
+                            <p class="text-center">@pizzaDellaLista.Ingredienti</p>
                         </div>
                         <div class="card-footer text-center"><a href="#" class="btn btn-primary align-content-lg-center">Prezzo: € @pizzaDellaLista.Prezzo</a></div>
                     </div>
                 </div> 
+                contatore++;
+                
+                @if (contatore % 3 == 0)
+                {
+                    <div class="w-100"></div>
+                    <br/>
+                }
             }
         }
-            </div>             
+            </div>          
+        </div>

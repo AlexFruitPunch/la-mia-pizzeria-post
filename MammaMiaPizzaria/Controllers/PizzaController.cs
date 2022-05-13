@@ -36,5 +36,27 @@ namespace MammaMiaPizzaria.Controllers
                 return NotFound("il post con id" + id + "non è stato trovato");
             }
         }
+
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View("FormPizza");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Pizza nuovaPizza)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View("FormPizza", nuovaPizza);
+            }
+
+            Pizza nuovaPizzaConId = new Pizza(PizzaData.GetPizze().Count, nuovaPizza.Nome, nuovaPizza.Ingredienti, nuovaPizza.immagine, nuovaPizza.Prezzo);
+
+            PizzaData.GetPizze().Add(nuovaPizzaConId);
+
+            return RedirectToAction("ListinoPizze");
+        }
     }
 }

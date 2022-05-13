@@ -21,7 +21,7 @@ namespace MammaMiaPizzaria.Utils
             
 
             //istanzio un oggetto per ogni elemento della lista e la salvo nella lista provvisoria
-            Pizza pizza = new Pizza(0, "margherita", "mozzarella, pomodoro, olio di oliva, basilico", "https://shop.benazzoli.com/wp-content/uploads/2019/05/pizza-margherita_1200x800.jpg", Math.Round(4.00, 2));
+            Pizza pizza = new Pizza(0, "Margherita", "mozzarella, pomodoro, olio di oliva, basilico", "https://shop.benazzoli.com/wp-content/uploads/2019/05/pizza-margherita_1200x800.jpg", Math.Round(4.00, 2));
             NuovePizze.Add(pizza);
             Pizza pizza2 = new Pizza(1, "Marinara", "pomodoro, olio di oliva, basilico, aglio", "https://primochef.it/wp-content/uploads/2018/05/SH_pizza_alla_marinara-1200x800.jpg", Math.Round(3.50, 2));
             NuovePizze.Add(pizza2);
